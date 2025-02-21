@@ -1,0 +1,20 @@
+{
+  "name": "registry",
+  "version": "0.13.7",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bash ./scripts/build.sh",
+    "test": "bash ./scripts/test.sh"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "aoform": "1.0.7"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "luamin": "^1.0.4"
+  }
+}
