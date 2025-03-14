@@ -1,0 +1,25 @@
+{
+  "name": "token-drop",
+  "private": true,
+  "scripts": {
+    "dev": "mprocs",
+    "frontend:dev": "cd apps/frontend && bun run dev",
+    "frontend:format": "cd apps/frontend && bun run format",
+    "frontend:lint": "cd apps/frontend && bun run lint"
+  },
+  "devDependencies": {
+    "@permaweb/aoconnect": "^0.0.55",
+    "aoform": "1.0.7",
+    "bun-types": "latest",
+    "mprocs": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "workspaces": ["apps/*", "packages/*"],
+  "dependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "yaml": "^2.4.5"
+  }
+}
