@@ -1,0 +1,9 @@
+token-drop-registry-aos-2-0:
+  processId: qH76V-hcgOXQuyQ5mbUfa7J2o0FK8p_rgLBcQb45tLQ
+  hash: db1b683c5fa00aa0f98d74d124f1f0f312457a5b4aba79ae8fca2d9378af7705
+whitelist-module-manager:
+  processId: 0fOFOMVZ7jIo4T2iujkTH6-llhZlk3GEEsp-4TmiUv8
+  hash: 6eff6458a972a7677f459e1803d09ae6cc6f3a4925f849ce2dee9ab7c85d2d55
+whitelist-module-manager-staging:
+  processId: Zd7vLelhAEU0EBEZ5yszRC1n3V9Win4U-7mcprtSZvs
+  hash: 6eff6458a972a7677f459e1803d09ae6cc6f3a4925f849ce2dee9ab7c85d2d55
