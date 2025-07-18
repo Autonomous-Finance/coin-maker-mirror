@@ -1,0 +1,33 @@
+#- name: stg-token-drop-registry
+#  file: packages/registry/build/registry.lua
+#  prerun: reset-modules.lua
+#  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+#  module: GYrbbe0VbHim_7Hi6zrOpHQXrSQz07XNtwCnfbFo2I0
+#  tags:
+#    - name: Name
+#      value: stg-token-drop-registry
+
+- name: token-drop-registry-aos-2-0
+  file: packages/registry/build/registry.lua
+  prerun: reset-modules.lua
+  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+  module: bkjb55i07GUCUSWROtKK4HU1mBS_X0TyH3M5jMV6aPg
+  tags:
+    - name: Name
+      value: token-drop-registry-aos-2-0
+    - name: Authority
+      value: fcoN_xJeisVsPXA-trzVAuIiqO3ydLQxM-L4XbrQKzY
+
+- name: token-drop-hb-cache
+  file: packages/registry/hb-cache-process.lua
+  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+  module: EAIJew2R7aptjpyn7TD7S7ldVW4cTpUhZCaMvcerfWc
+  tags:
+    - name: Name
+      value: token-drop-hb-cache
+    - name: Operator
+      value: LjFZGDae9yM-yOj0Ei7ex0xy3Zdrbn8jo-7ZqVLT19E
+    - name: Authority
+      value: fcoN_xJeisVsPXA-trzVAuIiqO3ydLQxM-L4XbrQKzY
+    - name: TokenDrop-Process
+      value: mQES2_hwlXQS8JVSdPJvRTkp78slLCl2gpm6sW3CK9w
