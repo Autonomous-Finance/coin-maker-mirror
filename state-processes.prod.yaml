@@ -1,0 +1,15 @@
+stg-token-drop-registry:
+  processId: Mrkk8xNLfy1zhx99oAJTRDAHA3j6n1TG_hIf_I03yBY
+  hash: 312839c2ea0d99d65161f66590b031dcd8baebd8a3e53c12deafd7fe8f553233
+stg-token-drop-registry-aos-v2:
+  processId: KER-Fp6oxdkSgJhqodmDWX3tmkOE5p_R_kEeV1S5lPM
+  hash: 01f948fde7de36644b3c773b4f6b9407f8ec84f2e2ec3e54570a79f492747925
+stg-token-drop-registry-aos-2-0:
+  processId: iokvJLbh_ehHEFYCh2Xgf46Mkrzv76rS5AJeDy6Tzcc
+  hash: 01f948fde7de36644b3c773b4f6b9407f8ec84f2e2ec3e54570a79f492747925
+token-drop-registry-aos-2-0:
+  processId: mQES2_hwlXQS8JVSdPJvRTkp78slLCl2gpm6sW3CK9w
+  hash: 602305ee3bceec6892e47653d3b8aae4a1687ec9d411bf360ddae489d21234b4
+token-drop-hb-cache:
+  processId: 8EPFHQHsxVlHocvcxAaBbxCrmzzg7AsG2Cl0QLnSIG4
+  hash: 1300c1216b6583df0e058c3f0205a905361d4ba12bad5fea7e21b4a584caf1cd

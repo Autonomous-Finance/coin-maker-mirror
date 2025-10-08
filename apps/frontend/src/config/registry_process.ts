@@ -1,0 +1,1 @@
+export const REGISTRY_PROCESS = "mQES2_hwlXQS8JVSdPJvRTkp78slLCl2gpm6sW3CK9w";

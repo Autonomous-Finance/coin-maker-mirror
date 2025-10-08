@@ -1,0 +1,7 @@
+procs:
+  frontend:
+    cwd: ./apps/frontend
+    shell: bun dev
+  aos:
+    cwd: ./packages/ao
+    shell: aos dev-token-drop

@@ -1,0 +1,38 @@
+- name: token-drop-registry-aos-2-0
+  file: packages/registry/build/registry.lua
+  prerun: reset-modules.lua
+  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+  module: bkjb55i07GUCUSWROtKK4HU1mBS_X0TyH3M5jMV6aPg
+  tags:
+    - name: Name
+      value: coinmaker-staging-aos-2-0
+    - name: Authority
+      value: fcoN_xJeisVsPXA-trzVAuIiqO3ydLQxM-L4XbrQKzY
+    - name: Operator
+      value: LjFZGDae9yM-yOj0Ei7ex0xy3Zdrbn8jo-7ZqVLT19E
+
+- name: whitelist-module-manager-staging
+  file: packages/registry/build/whitelist_process.lua
+  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+  module: bkjb55i07GUCUSWROtKK4HU1mBS_X0TyH3M5jMV6aPg
+  tags:
+    - name: Name
+      value: whitelist-module-manager-staging
+    - name: Authority
+      value: fcoN_xJeisVsPXA-trzVAuIiqO3ydLQxM-L4XbrQKzY
+    - name: Operator
+      value: LjFZGDae9yM-yOj0Ei7ex0xy3Zdrbn8jo-7ZqVLT19E
+
+- name: token-drop-hb-cache-staging
+  file: packages/registry/hb-cache-process.lua
+  scheduler: _GQ33BkPtZrqxA84vM8Zk-N2aO0toNNu_C-l-rawrBA
+  module: EAIJew2R7aptjpyn7TD7S7ldVW4cTpUhZCaMvcerfWc
+  tags:
+    - name: Name
+      value: token-drop-hb-cache-staging
+    - name: Operator
+      value: LjFZGDae9yM-yOj0Ei7ex0xy3Zdrbn8jo-7ZqVLT19E
+    - name: Authority
+      value: fcoN_xJeisVsPXA-trzVAuIiqO3ydLQxM-L4XbrQKzY
+    - name: TokenDrop-Process
+      value: qH76V-hcgOXQuyQ5mbUfa7J2o0FK8p_rgLBcQb45tLQ

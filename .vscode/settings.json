@@ -1,0 +1,11 @@
+{
+    "Lua.workspace.library": [
+        "/Users/ovi/Library/Application Support/Code/User/globalStorage/sumneko.lua/addonManager/addons/ao/module/library",
+        "${3rd}/luassert/library",
+        "/Users/ovi/Library/Application Support/Code/User/globalStorage/sumneko.lua/addonManager/addons/busted/module/library"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.diagnostics.globals": [
+        "Send"
+    ]
+}

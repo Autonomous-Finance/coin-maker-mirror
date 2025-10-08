@@ -1,0 +1,10 @@
+{
+  "Lua": {
+    "diagnostics": {
+      "globals": ["ao", "Handlers"]
+    },
+    "workspace": {
+      "checkThirdParty": false
+    }
+  }
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "address": "vFjyRe_KLnHXcG4ccc3Om3ykd2QujEKGpFUYMW55wiw",
+        "amount": "500000",
+        "vested": 0
+    },
+    {
+        "address": "CybwgCyAlozEHI0BHiF7qpG8h3cbYSa1Volo6UZ6s8s",
+        "amount": "300000",
+        "vested": 300
+    },
+    {
+        "address": "vFjyRe_KLnHXcG4ccc3Om3ykd2QujEKGpFUYMW55wis",
+        "amount": "200000",
+        "vested": 150
+    }
+]
