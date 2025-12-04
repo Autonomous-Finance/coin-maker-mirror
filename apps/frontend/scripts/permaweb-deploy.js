@@ -9,8 +9,8 @@ import "dotenv/config";
 const DEPLOY_FOLDER = "./dist";
 const DEPLOY_KEY = process.env.DEPLOY_KEY;
 const ANT_PROCESS =
-	/* process.env.ANT_PROCESS */ "lwqoAlNbEzJG3rCsWYSCTNYG43a_I4FUKUD9QxieaQg";
-const DEPLOY_WALLET = "yqRGaljOLb2IvKkYVa87Wdcc8m_4w6FI58Gej05gorA";
+	process.env.ANT_PROCESS || "lwqoAlNbEzJG3rCsWYSCTNYG43a_I4FUKUD9QxieaQg";
+const DEPLOY_WALLET = process.env.DEPLOY_WALLET || "yqRGaljOLb2IvKkYVa87Wdcc8m_4w6FI58Gej05gorA";
 
 async function getFolderSize(folderPath) {
 	let totalSize = 0;
