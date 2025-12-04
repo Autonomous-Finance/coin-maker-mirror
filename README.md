@@ -16,6 +16,9 @@ This repository mirrors the original private repository and has been made availa
 - Bonding curve functionality
 - Liquidity pool (LP) creation and locking
 - Token distribution and vesting
+- Batch transfer support for efficient multi-recipient transfers
+- Whitelisting module for transfer restrictions
+- Tree-based balance storage using AO devices
 - Integration with AO network processes
 
 ## Project Structure
@@ -99,30 +102,79 @@ The application requires the following environment variables (prefixed with `VIT
 - `VITE_DEXI_PROCESS` - DEXI process ID
 - `VITE_WRAPPED_AR_PROCESS` - Wrapped AR token process ID
 - `VITE_QAR_PROCESS` - QAR token process ID
-- `VITE_HB_NODE_URL` - Hyperbridge node URL (default: `https://hb.zoao.dev`)
+- `VITE_HB_NODE_URL` - Hyperbridge node URL
 - `VITE_APP_VER` - Application version
 - `VITE_GIT_HASH` - Git commit hash
 
-## Security Considerations
+## Token Architecture
 
-⚠️ **Important Security Notes:**
+### Tree Device for Balances
 
-1. **Environment Variables**: Never commit `.env` files to version control. The `.gitignore` file is configured to exclude these files.
+The token contracts use AO's device system to efficiently store and update balances. The balance storage leverages a **tree device** (`trie@1.0`) which provides:
 
-2. **Deployment Scripts**: The `permaweb-deploy.js` script requires sensitive credentials:
-   - `DEPLOY_KEY` - Base64-encoded Arweave wallet JSON (required)
-   - `DEPLOY_WALLET` - Wallet address for balance checks (optional, has default)
-   - `ANT_PROCESS` - ANT process ID (optional, has default)
-   
-   These should be set as environment variables and never committed to the repository.
+- **Efficient Storage**: Balances are stored in a Merkle tree structure, enabling efficient updates and queries
+- **Patch Updates**: Balance changes are propagated using the `patch@1.0` device, which sends incremental updates to the balance tree
+- **Initialization**: On token deployment, the balances tree is initialized with `balances = { device = "trie@1.0" }` to set up the tree structure
+- **Incremental Updates**: After transfers, only the affected addresses are patched, minimizing data transfer and storage costs
 
-3. **Public Addresses**: This repository contains public blockchain addresses and process IDs. These are safe to expose as they are already public on-chain.
+The patch mechanism sends balance updates in the following format:
+```lua
+{
+  device = 'patch@1.0',
+  balances = {
+    [address] = balance_amount,
+    ...
+  },
+  ['token-info'] = {
+    name = Name,
+    ticker = Ticker,
+    logo = Logo,
+    denomination = Denomination,
+    supply = TotalSupply
+  }
+}
+```
 
-4. **Wallet Integration**: The application uses client-side wallet connections (Arweave Wallet Kit). Private keys never leave the user's browser.
+### Batch Transfer
 
-5. **No Backend Secrets**: This is a frontend-only application that interacts directly with the AO network. There are no backend API keys or secrets stored in this codebase.
+The token contracts support **atomic batch transfers** for efficiently sending tokens to multiple recipients in a single transaction:
 
-For more detailed security information, see [SECURITY.md](SECURITY.md).
+- **CSV Format**: Transfers are specified in CSV format: `recipient_address,quantity`
+- **Atomicity**: All transfers succeed or all fail - no partial executions
+- **Aggregation**: Multiple transfers to the same recipient are automatically aggregated
+- **Notifications**: Sends batch debit notices to the sender and individual credit notices to recipients (unless `Cast` tag is set)
+
+**Example CSV format:**
+```
+recipient_address_1,100
+recipient_address_2,200
+recipient_address_3,150
+```
+
+**Features:**
+- Validates all entries before processing
+- Checks sufficient balance before execution
+- Updates balances atomically
+- Sends appropriate notifications
+- Patches the balance tree with all affected addresses
+
+### Whitelisting Module
+
+The whitelisting module provides **transfer restriction capabilities** for token contracts:
+
+- **Enable/Disable**: Whitelist can be enabled or disabled by the token owner
+- **Address Management**: Add or remove addresses from the whitelist individually or in batches
+- **Transfer Guard**: Automatically intercepts transfer attempts and validates sender against the whitelist
+- **Owner Control**: Only the token owner can modify whitelist settings
+
+**Actions:**
+- `Whitelist/Add-Address` - Add a single address to the whitelist
+- `Whitelist/Add-Address-Batch` - Add multiple addresses at once
+- `Whitelist/Remove-Address` - Remove an address from the whitelist
+- `Whitelist/Get-Whitelist` - Query current whitelist state
+- `Whitelist/Set-Enabled` - Enable or disable the whitelist
+
+When enabled, only addresses on the whitelist can send transfers. Recipients are not restricted - anyone can receive tokens.
 
 ## License
 
